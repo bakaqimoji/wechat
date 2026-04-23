@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="header">
+    <text class="title">选择头像</text>
+    <text class="subtitle">为{{coachName}}选择一个新头像</text>
+  </view>
+
+  <view class="avatar-grid">
+    <view class="avatar-item" wx:for="{{avatarList}}" wx:key="id" bindtap="onSelectAvatar" data-url="{{item.url}}">
+      <image class="avatar-image {{selectedAvatar === item.url ? 'selected' : ''}}" src="{{item.url}}" mode="aspectFill" />
+      <view class="avatar-name">{{item.name}}</view>
+    </view>
+  </view>
+
+  <view class="custom-upload">
+    <button class="upload-btn" bindtap="onCustomUpload">📷 上传自定义头像</button>
+  </view>
+
+  <view class="action-buttons">
+    <button class="cancel-btn" bindtap="onCancel">取消</button>
+    <button class="confirm-btn" bindtap="onConfirm">确定</button>
+  </view>
+</view>

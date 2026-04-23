@@ -40,10 +40,6 @@ Page({
 
       const coach = coaches.find(c => c.id == coachId);
       if (coach) {
-        // 检查是否有自定义头像
-        const coachAvatars = wx.getStorageSync('coachAvatars') || {};
-        coach.avatar = coachAvatars[coach.id] || coach.avatar;
-
         this.setData({
           coach: coach
         });

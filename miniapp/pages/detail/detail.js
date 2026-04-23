@@ -61,10 +61,6 @@ Page({
 
     const coach = coaches.find(c => c.id == coachId);
     if (coach) {
-      // 检查是否有自定义头像
-      const coachAvatars = wx.getStorageSync('coachAvatars') || {};
-      coach.avatar = coachAvatars[coach.id] || coach.avatar;
-
       this.setData({
         coach: coach
       });
@@ -94,6 +90,28 @@ Page({
           });
         }
       }
+    });
+  },
+
+  onEditCoachAvatar() {
+    const coach = this.data.coach;
+    wx.navigateTo({
+      url: `/pages/avatar-select/avatar-select?id=${coach.id}&name=${coach.name}`
+    });
+  },
+
+  updateCoachAvatar(newAvatarUrl) {
+    const coach = this.data.coach;
+    coach.avatar = newAvatarUrl;
+
+    this.setData({
+      coach: coach
+    });
+
+    // 在实际项目中，这里应该调用API更新数据库
+    wx.showToast({
+      title: '头像更新成功',
+      icon: 'success'
     });
   },
 

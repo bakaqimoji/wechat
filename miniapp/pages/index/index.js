@@ -55,17 +55,8 @@ Page({
   onLoad() {
     console.log('首页加载完成');
     // 初始化显示所有教练
-    let coaches = this.data.originalCoaches;
-
-    // 从本地存储加载自定义头像
-    const coachAvatars = wx.getStorageSync('coachAvatars') || {};
-    coaches = coaches.map(coach => ({
-      ...coach,
-      avatar: coachAvatars[coach.id] || coach.avatar
-    }));
-
     this.setData({
-      coaches: coaches
+      coaches: this.data.originalCoaches
     });
   },
 
@@ -79,18 +70,11 @@ Page({
     const keyword = this.data.searchKeyword.trim();
     if (keyword) {
       // 搜索逻辑：根据教练姓名、专业或地点进行搜索
-      let filteredCoaches = this.data.originalCoaches.filter(coach =>
+      const filteredCoaches = this.data.originalCoaches.filter(coach =>
         coach.name.includes(keyword) ||
         coach.specialty.includes(keyword) ||
         coach.location.includes(keyword)
       );
-
-      // 应用自定义头像
-      const coachAvatars = wx.getStorageSync('coachAvatars') || {};
-      filteredCoaches = filteredCoaches.map(coach => ({
-        ...coach,
-        avatar: coachAvatars[coach.id] || coach.avatar
-      }));
 
       this.setData({
         coaches: filteredCoaches,
@@ -103,15 +87,8 @@ Page({
       });
     } else {
       // 如果搜索关键词为空，显示所有教练
-      let coaches = this.data.originalCoaches;
-      const coachAvatars = wx.getStorageSync('coachAvatars') || {};
-      coaches = coaches.map(coach => ({
-        ...coach,
-        avatar: coachAvatars[coach.id] || coach.avatar
-      }));
-
       this.setData({
-        coaches: coaches,
+        coaches: this.data.originalCoaches,
         activeTag: 'all'
       });
     }
@@ -145,13 +122,6 @@ Page({
         coach.specialty === specialtyMap[tag]
       );
     }
-
-    // 应用自定义头像
-    const coachAvatars = wx.getStorageSync('coachAvatars') || {};
-    filteredCoaches = filteredCoaches.map(coach => ({
-      ...coach,
-      avatar: coachAvatars[coach.id] || coach.avatar
-    }));
 
     this.setData({
       coaches: filteredCoaches

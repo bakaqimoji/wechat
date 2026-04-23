@@ -17,125 +17,14 @@ Page({
 
   onEditAvatar() {
     wx.showActionSheet({
-      itemList: ['拍照', '从相册选择', '选择教练头像'],
+      itemList: ['拍照', '从相册选择'],
       success: (res) => {
-        if (res.tapIndex === 2) {
-          // 选择教练头像
-          this.showCoachAvatarSelector();
-        } else {
-          // 拍照或从相册选择
-          this.chooseAndUploadAvatar(res.tapIndex);
-        }
-      }
-    });
-  },
-
-  chooseAndUploadAvatar(sourceType) {
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['compressed'],
-      sourceType: sourceType === 0 ? ['camera'] : ['album'],
-      success: (res) => {
-        const tempFilePath = res.tempFilePaths[0];
-        this.uploadAvatar(tempFilePath);
-      }
-    });
-  },
-
-  uploadAvatar(tempFilePath) {
-    wx.showLoading({
-      title: '上传中...'
-    });
-
-    // 模拟上传过程
-    setTimeout(() => {
-      wx.hideLoading();
-      // 在实际项目中，这里应该调用wx.uploadFile上传到服务器
-      // 这里模拟上传成功，直接使用临时路径
-      this.setData({
-        'userInfo.avatar': tempFilePath
-      });
-
-      // 保存到本地存储
-      wx.setStorageSync('userAvatar', tempFilePath);
-
-      wx.showToast({
-        title: '头像上传成功',
-        icon: 'success'
-      });
-    }, 2000);
-  },
-
-  showCoachAvatarSelector() {
-    const coaches = [
-      { id: 1, name: '张教练', avatar: 'https://via.placeholder.com/120x120/4CAF50/FFFFFF?text=张' },
-      { id: 2, name: '李教练', avatar: 'https://via.placeholder.com/120x120/FF9800/FFFFFF?text=李' },
-      { id: 3, name: '王教练', avatar: 'https://via.placeholder.com/120x120/2196F3/FFFFFF?text=王' },
-      { id: 4, name: '赵教练', avatar: 'https://via.placeholder.com/120x120/9C27B0/FFFFFF?text=赵' },
-      { id: 5, name: '刘教练', avatar: 'https://via.placeholder.com/120x120/9C27B0/FFFFFF?text=刘' }
-    ];
-
-    const coachNames = coaches.map(coach => coach.name);
-
-    wx.showActionSheet({
-      itemList: coachNames,
-      success: (res) => {
-        const selectedCoach = coaches[res.tapIndex];
-        wx.showModal({
-          title: '选择操作',
-          content: `为${selectedCoach.name}上传新头像？`,
-          confirmText: '上传头像',
-          cancelText: '使用默认',
-          success: (modalRes) => {
-            if (modalRes.confirm) {
-              this.uploadCoachAvatar(selectedCoach.id);
-            } else {
-              // 使用默认头像
-              this.setCoachAvatar(selectedCoach.id, selectedCoach.avatar);
-            }
-          }
+        console.log('选择头像方式', res.tapIndex);
+        wx.showToast({
+          title: '头像修改功能开发中',
+          icon: 'none'
         });
       }
-    });
-  },
-
-  uploadCoachAvatar(coachId) {
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['compressed'],
-      sourceType: ['album', 'camera'],
-      success: (res) => {
-        const tempFilePath = res.tempFilePaths[0];
-        wx.showLoading({
-          title: '上传教练头像...'
-        });
-
-        // 模拟上传过程
-        setTimeout(() => {
-          wx.hideLoading();
-
-          // 保存教练头像到本地存储
-          const coachAvatars = wx.getStorageSync('coachAvatars') || {};
-          coachAvatars[coachId] = tempFilePath;
-          wx.setStorageSync('coachAvatars', coachAvatars);
-
-          wx.showToast({
-            title: '教练头像上传成功',
-            icon: 'success'
-          });
-        }, 2000);
-      }
-    });
-  },
-
-  setCoachAvatar(coachId, avatarUrl) {
-    const coachAvatars = wx.getStorageSync('coachAvatars') || {};
-    coachAvatars[coachId] = avatarUrl;
-    wx.setStorageSync('coachAvatars', coachAvatars);
-
-    wx.showToast({
-      title: '教练头像设置成功',
-      icon: 'success'
     });
   },
 

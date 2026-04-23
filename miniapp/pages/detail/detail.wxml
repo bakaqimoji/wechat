@@ -3,6 +3,7 @@
     <view class="avatar-section">
       <image class="coach-avatar" src="{{coach.avatar}}" mode="aspectFill" />
       <view class="share-btn" bindtap="onShare">📤</view>
+      <view class="edit-avatar-btn" bindtap="onEditCoachAvatar">📷</view>
     </view>
     <view class="coach-basic-info">
       <view class="coach-name">{{coach.name}}</view>
