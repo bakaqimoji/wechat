@@ -1,5 +1,36 @@
 <view class="container">
-  <text class="title">Hello, 微信小程序！</text>
-  <button bindtap="onTap">点击我</button>
-  <text class="msg">{{message}}</text>
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <input placeholder="搜索健身教练..." bindinput="onSearchInput" value="{{searchKeyword}}" />
+    <button class="search-btn" bindtap="onSearch">搜索</button>
+    <button class="clear-btn" bindtap="onClearSearch" wx:if="{{searchKeyword}}">清空</button>
+  </view>
+
+  <!-- 筛选标签 -->
+  <view class="filter-tags">
+    <scroll-view scroll-x="true" class="tags-scroll">
+      <view class="tag {{activeTag === 'all' ? 'active' : ''}}" bindtap="onTagTap" data-tag="all">全部</view>
+      <view class="tag {{activeTag === 'yoga' ? 'active' : ''}}" bindtap="onTagTap" data-tag="yoga">瑜伽</view>
+      <view class="tag {{activeTag === 'fitness' ? 'active' : ''}}" bindtap="onTagTap" data-tag="fitness">健身</view>
+      <view class="tag {{activeTag === 'running' ? 'active' : ''}}" bindtap="onTagTap" data-tag="running">跑步</view>
+      <view class="tag {{activeTag === 'boxing' ? 'active' : ''}}" bindtap="onTagTap" data-tag="boxing">拳击</view>
+    </scroll-view>
+  </view>
+
+  <!-- 教练列表 -->
+  <view class="coach-list">
+    <view class="coach-card" wx:for="{{coaches}}" wx:key="id" bindtap="onCoachTap" data-id="{{item.id}}">
+      <image class="coach-avatar" src="{{item.avatar}}" mode="aspectFill" />
+      <view class="coach-info">
+        <view class="coach-name">{{item.name}}</view>
+        <view class="coach-specialty">{{item.specialty}}</view>
+        <view class="coach-location">📍 {{item.location}}</view>
+        <view class="coach-price">💰 {{item.price}}/小时</view>
+      </view>
+      <view class="coach-rating">
+        <text class="rating-stars">⭐⭐⭐⭐⭐</text>
+        <text class="rating-score">{{item.rating}}</text>
+      </view>
+    </view>
+  </view>
 </view>

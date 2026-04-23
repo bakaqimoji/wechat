@@ -1,0 +1,51 @@
+<view class="container">
+  <view class="coach-header">
+    <view class="avatar-section">
+      <image class="coach-avatar" src="{{coach.avatar}}" mode="aspectFill" />
+      <view class="share-btn" bindtap="onShare">📤</view>
+    </view>
+    <view class="coach-basic-info">
+      <view class="coach-name">{{coach.name}}</view>
+      <view class="coach-specialty">{{coach.specialty}}</view>
+      <view class="coach-rating">
+        <text class="rating-stars">⭐⭐⭐⭐⭐</text>
+        <text class="rating-score">{{coach.rating}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="info-section">
+    <view class="section-title">基本信息</view>
+    <view class="info-item">
+      <text class="info-label">📍 位置：</text>
+      <text class="info-value">{{coach.location}}</text>
+    </view>
+    <view class="info-item">
+      <text class="info-label">💰 价格：</text>
+      <text class="info-value">{{coach.price}}/小时</text>
+    </view>
+    <view class="info-item">
+      <text class="info-label">📅 经验：</text>
+      <text class="info-value">5年专业教学经验</text>
+    </view>
+  </view>
+
+  <view class="info-section">
+    <view class="section-title">擅长项目</view>
+    <view class="skills">
+      <view class="skill-tag" wx:for="{{coach.skills}}" wx:key="*">{{item}}</view>
+    </view>
+  </view>
+
+  <view class="info-section">
+    <view class="section-title">自我介绍</view>
+    <view class="introduction">
+      专业的健身教练，拥有多年的教学经验。致力于帮助学员科学健身，达到理想的身材目标。提供个性化训练方案，安全有效的指导。
+    </view>
+  </view>
+
+  <view class="action-buttons">
+    <button class="contact-btn" bindtap="onContact">💬 联系教练</button>
+    <button class="match-btn" bindtap="onMatch">🤝 申请匹配</button>
+  </view>
+</view>

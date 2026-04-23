@@ -1,21 +1,132 @@
 .container {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding-bottom: 120rpx;
+}
+
+.search-bar {
   display: flex;
-  flex-direction: column;
+  padding: 20rpx;
+  background-color: #fff;
+  margin: 20rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.1);
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-  padding: 40rpx;
-  background-color: #f6f6f6;
 }
-.title {
+
+.search-bar input {
+  flex: 1;
+  border: none;
+  padding: 16rpx;
+  font-size: 28rpx;
+}
+
+.search-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 16rpx 32rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  margin-left: 16rpx;
+}
+
+.clear-btn {
+  background-color: #ff6b35;
+  color: white;
+  border: none;
+  padding: 16rpx 24rpx;
+  border-radius: 8rpx;
+  font-size: 26rpx;
+  margin-left: 12rpx;
+}
+
+.filter-tags {
+  padding: 0 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.tags-scroll {
+  white-space: nowrap;
+}
+
+.tag {
+  display: inline-block;
+  padding: 12rpx 24rpx;
+  margin-right: 16rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  font-size: 26rpx;
+  color: #666;
+  border: 1rpx solid #e0e0e0;
+}
+
+.tag.active {
+  background-color: #4CAF50;
+  color: white;
+  border-color: #4CAF50;
+}
+
+.coach-list {
+  padding: 0 20rpx;
+}
+
+.coach-card {
+  display: flex;
+  background-color: #fff;
+  margin-bottom: 16rpx;
+  padding: 24rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.1);
+  align-items: center;
+}
+
+.coach-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  margin-right: 24rpx;
+}
+
+.coach-info {
+  flex: 1;
+}
+
+.coach-name {
   font-size: 32rpx;
+  font-weight: bold;
   color: #333;
-  margin-bottom: 30rpx;
+  margin-bottom: 8rpx;
 }
-button {
-  width: 260rpx;
+
+.coach-specialty {
+  font-size: 26rpx;
+  color: #4CAF50;
+  margin-bottom: 8rpx;
 }
-.msg {
-  margin-top: 24rpx;
+
+.coach-location {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 8rpx;
+}
+
+.coach-price {
+  font-size: 26rpx;
+  color: #ff6b35;
+  font-weight: bold;
+}
+
+.coach-rating {
+  text-align: center;
+}
+
+.rating-stars {
+  font-size: 24rpx;
+  margin-bottom: 4rpx;
+}
+
+.rating-score {
+  font-size: 24rpx;
   color: #666;
 }

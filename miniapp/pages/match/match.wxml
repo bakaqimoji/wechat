@@ -1,0 +1,49 @@
+<view class="container">
+  <view class="match-header">
+    <text class="header-title">智能匹配</text>
+    <text class="header-subtitle">为你推荐合适的健身搭档</text>
+  </view>
+
+  <view class="match-preferences">
+    <view class="preference-item">
+      <text class="preference-label">健身类型：</text>
+      <picker mode="selector" range="{{fitnessTypes}}" bindchange="onFitnessTypeChange">
+        <view class="picker-display">{{fitnessTypes[selectedFitnessType]}}</view>
+      </picker>
+    </view>
+
+    <view class="preference-item">
+      <text class="preference-label">价格范围：</text>
+      <picker mode="selector" range="{{priceRanges}}" bindchange="onPriceRangeChange">
+        <view class="picker-display">{{priceRanges[selectedPriceRange]}}</view>
+      </picker>
+    </view>
+
+    <view class="preference-item">
+      <text class="preference-label">距离范围：</text>
+      <picker mode="selector" range="{{distanceRanges}}" bindchange="onDistanceChange">
+        <view class="picker-display">{{distanceRanges[selectedDistance]}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="match-button">
+    <button class="match-btn" bindtap="onStartMatch">🎯 开始匹配</button>
+  </view>
+
+  <view class="recent-matches" wx:if="{{recentMatches.length > 0}}">
+    <view class="section-title">最近匹配</view>
+    <view class="match-list">
+      <view class="match-item" wx:for="{{recentMatches}}" wx:key="id">
+        <image class="match-avatar" src="{{item.avatar}}" mode="aspectFill" />
+        <view class="match-info">
+          <view class="match-name">{{item.name}}</view>
+          <view class="match-status {{item.status === 'matched' ? 'success' : 'pending'}}">
+            {{item.status === 'matched' ? '已匹配' : '等待回复'}}
+          </view>
+        </view>
+        <view class="match-time">{{item.time}}</view>
+      </view>
+    </view>
+  </view>
+</view>

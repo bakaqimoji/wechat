@@ -1,0 +1,46 @@
+<view class="container">
+  <view class="chat-header">
+    <view class="chat-info">
+      <image class="chat-avatar" src="{{coach.avatar}}" mode="aspectFill" />
+      <view class="chat-details">
+        <view class="chat-name">{{coach.name}}</view>
+        <view class="chat-status">在线</view>
+      </view>
+    </view>
+  </view>
+
+  <scroll-view class="chat-messages" scroll-y="true" scroll-with-animation="true">
+    <view class="message-list">
+      <view class="message-item coach-message">
+        <image class="message-avatar" src="{{coach.avatar}}" mode="aspectFill" />
+        <view class="message-content">
+          <view class="message-bubble">你好！我是{{coach.name}}，很高兴认识你！有什么可以帮助你的吗？</view>
+          <view class="message-time">10:30</view>
+        </view>
+      </view>
+
+      <view class="message-item user-message">
+        <view class="message-content user-content">
+          <view class="message-bubble user-bubble">你好，我想了解一下你的训练课程安排。</view>
+          <view class="message-time">10:32</view>
+        </view>
+        <image class="message-avatar" src="{{userAvatar}}" mode="aspectFill" />
+      </view>
+
+      <view class="message-item coach-message">
+        <image class="message-avatar" src="{{coach.avatar}}" mode="aspectFill" />
+        <view class="message-content">
+          <view class="message-bubble">当然可以！我提供个性化训练方案，包括力量训练、塑形减脂等。你想从哪个方面开始呢？</view>
+          <view class="message-time">10:33</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="chat-input">
+    <view class="input-container">
+      <input class="message-input" placeholder="输入消息..." bindinput="onInputChange" value="{{inputValue}}" />
+      <button class="send-btn" bindtap="onSendMessage">发送</button>
+    </view>
+  </view>
+</view>

@@ -1,11 +1,34 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/profile/profile",
+    "pages/match/match",
+    "pages/chat/chat",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTitleText": "首页",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#4CAF50",
+    "navigationBarTitleText": "健身搭档",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#4CAF50",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "找搭档"
+      },
+      {
+        "pagePath": "pages/match/match",
+        "text": "匹配"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
   }
 }

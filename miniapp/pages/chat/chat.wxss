@@ -1,0 +1,133 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+
+.chat-header {
+  background-color: #fff;
+  padding: 20rpx 24rpx;
+  border-bottom: 1rpx solid #e0e0e0;
+}
+
+.chat-info {
+  display: flex;
+  align-items: center;
+}
+
+.chat-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  margin-right: 20rpx;
+}
+
+.chat-details {
+  flex: 1;
+}
+
+.chat-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4rpx;
+}
+
+.chat-status {
+  font-size: 24rpx;
+  color: #4CAF50;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 20rpx;
+}
+
+.message-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.message-item {
+  display: flex;
+  margin-bottom: 16rpx;
+}
+
+.coach-message {
+  justify-content: flex-start;
+}
+
+.user-message {
+  justify-content: flex-end;
+}
+
+.message-avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  margin: 0 12rpx;
+}
+
+.message-content {
+  max-width: 500rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-content {
+  align-items: flex-end;
+}
+
+.message-bubble {
+  background-color: #fff;
+  padding: 20rpx 24rpx;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 8rpx;
+  box-shadow: 0 2rpx 4rpx rgba(0,0,0,0.1);
+}
+
+.user-bubble {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.message-time {
+  font-size: 20rpx;
+  color: #999;
+  padding: 0 8rpx;
+}
+
+.chat-input {
+  background-color: #fff;
+  padding: 20rpx 24rpx;
+  border-top: 1rpx solid #e0e0e0;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.message-input {
+  flex: 1;
+  border: 1rpx solid #e0e0e0;
+  border-radius: 32rpx;
+  padding: 16rpx 24rpx;
+  font-size: 28rpx;
+  background-color: #f9f9f9;
+}
+
+.send-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 16rpx 32rpx;
+  border-radius: 32rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+}
