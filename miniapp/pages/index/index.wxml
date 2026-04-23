@@ -1,0 +1,5 @@
+<view class="container">
+  <text class="title">Hello, 微信小程序！</text>
+  <button bindtap="onTap">点击我</button>
+  <text class="msg">{{message}}</text>
+</view>
